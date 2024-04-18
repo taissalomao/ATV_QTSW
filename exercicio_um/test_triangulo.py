@@ -36,3 +36,19 @@ def test_triangulo_todos_lados_zero():
     # Todos os lados iguais a zero
     with pytest.raises(ValueError):
         Triangulo(0, 0, 0).tipo_triangulo()
+
+def test_triangulo_equilatero():
+    # Triângulo equilátero válido com diferentes tamanhos de lados
+    assert Triangulo(5, 5, 5).tipo_triangulo() == "Equilátero"
+    assert Triangulo(10, 10, 10).tipo_triangulo() == "Equilátero"
+
+def test_triangulo_isosceles():
+    # Triângulo isósceles válido com diferentes tamanhos de lados
+    assert Triangulo(3, 3, 5).tipo_triangulo() == "Isósceles"
+    assert Triangulo(4, 6, 4).tipo_triangulo() == "Isósceles"
+    assert Triangulo(5, 4, 5).tipo_triangulo() == "Isósceles"
+
+def test_triangulo_escaleno():
+    # Triângulo escaleno válido com diferentes tamanhos de lados
+    assert Triangulo(3, 4, 5).tipo_triangulo() == "Escaleno"
+    assert Triangulo(5, 12, 13).tipo_triangulo() == "Escaleno"
